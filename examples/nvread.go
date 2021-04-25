@@ -7,7 +7,7 @@ import (
 
 	"github.com/google/go-tpm/tpm2"
 	"github.com/google/go-tpm/tpmutil"
-	"github.com/marcoguerri/tpm2-tcti/abrmd"
+	"github.com/marcoguerri/go-tpm-tcti/abrmd"
 )
 
 var certPath = flag.String("path", "", "path where to write EK certificate")

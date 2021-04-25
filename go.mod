@@ -1,4 +1,4 @@
-module github.com/marcoguerri/tpm2-tcti
+module github.com/marcoguerri/go-tpm-tcti
 
 go 1.16
 

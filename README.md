@@ -1,6 +1,6 @@
 ### go-tpm-tcti
 Library which implements basic TCTI-like layer for [go-tpm](https://github.com/google/go-tpm). 
-Support abrmd only for the moment, by implementing Reader/Writer interface and proxying all 
+Supports abrmd only for the moment, by implementing Reader/Writer interface and proxying all 
 commands to abrmd via dbus. Support is only minimal to what go-tpm requires: a full TCTI interface
 it not relevant (e.g. cancel, polling handles support are not relevant for go-tpm, yet).
 
