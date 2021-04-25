@@ -14,9 +14,10 @@ $ go run examples/nvread.go -path /tmp/cert.der
 2021/04/25 11:31:41 creating new broker connection...
 2021/04/25 11:31:41 certificate written in /tmp/cert.der
 $ openssl x509 -inform der -in /tmp/cert.pem -noout -text                                                                                        
-Certificate:                                                                                                                                     
-    Data:                                                                                                                                        
+Certificate:
+    Data:
         Version: 3 (0x2)
+[...]
 ```
 
 ### License
