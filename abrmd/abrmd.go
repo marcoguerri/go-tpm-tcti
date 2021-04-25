@@ -2,7 +2,6 @@ package abrmd
 
 import (
 	"fmt"
-	"log"
 
 	"os"
 
@@ -76,7 +75,6 @@ func NewBroker() (*Broker, error) {
 	if call.Err != nil {
 		return nil, fmt.Errorf("could not create connection towards %s: %v", dstService, call.Err)
 	}
-	log.Printf("got body: %v", call.Body)
 	if len(call.Body) < 2 {
 		return nil, fmt.Errorf("expected at least (fds, id) from %v call, got %d return values", createConnection, len(call.Body))
 	}

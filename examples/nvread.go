@@ -1,6 +1,8 @@
 package main
 
 import (
+	"flag"
+	"io/ioutil"
 	"log"
 
 	"github.com/google/go-tpm/tpm2"
@@ -8,7 +10,14 @@ import (
 	"github.com/marcoguerri/tpm2-tcti/abrmd"
 )
 
+var certPath = flag.String("path", "", "path where to write EK certificate")
+
 func main() {
+	flag.Parse()
+	if *certPath == "" {
+		log.Fatalf("please provide path of certificate via `path` flag")
+	}
+
 	log.Printf("creating new broker connection...")
 	broker, err := abrmd.NewBroker()
 	if err != nil {
@@ -18,5 +27,9 @@ func main() {
 	if err != nil {
 		log.Fatalf("could not read nvram index: %v", err)
 	}
-	log.Printf("received buffer %x", buff)
+	err = ioutil.WriteFile(*certPath, buff, 0644)
+	if err != nil {
+		log.Panicf("could not write certificate: %w", err)
+	}
+	log.Printf("certificate written in %s", *certPath)
 }
